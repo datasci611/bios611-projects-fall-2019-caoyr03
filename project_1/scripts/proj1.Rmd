@@ -1,0 +1,49 @@
+---
+title: "project1"
+author: "Yuru Cao"
+date: "9/24/2019"
+output: html_document
+---
+First, we read in the dataset deliminated by tab, so it would be read into 13 columns after deleting unnecessary columns.
+```{r warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggplot2)
+setwd('/Users/caoyuru/Desktop/BIOS 611')
+data = read.csv('UMD_Services_Provided_20190719.tsv',sep="\t")
+data <- data[,-c(14,15,16,17,18)]
+head(data)
+```
+## Problem 1 How average food providing per capital has changed?
+#### After reading the dataset, we are curious about how average food providing has changed overtime. Are they increasing with the time? Or do they tend to grow smaller?
+```{r}
+data$Date<- as.Date(data$Date,format="%m/%d/%Y") 
+data$Date <- format(as.Date(data$Date),"%Y") 
+data$Food.Per.Capita <- data$Food.Pounds/data$Food.Provided.for
+datafood <- na.omit(data[c("Date","Food.Per.Capita")])
+```
+
+Since we only want to see the data grouped by year, we will arrange the date variable into yearly format. We create a new data frame to store the two variables we want to plot. 
+Upon primary inspection, we find out that effective data is only availble from 2008ish. Therefore, we filter the date between 2008~2019. 
+After plotting the data points, we spotted many outliers in Food per capita >75000 which may be caused by the inconsistency of the data. So we remove the outliers and only focus on 0~2000 pounds per capita.
+```{r}
+ggplot(filter(datafood,Date>2008 & Date<2019 & Food.Per.Capita<75000), aes(x=Date,y=Food.Per.Capita)) + geom_point()
+```
+
+#####Conclusion
+From the plot, we could clearly tell that overall yearly food providing per capita has increased with the time, especially from ~2013 to 2014-2018. However, we could not tell the points separately larger than others are record by mistake or true occurrence. That might be possibility that extreme amount of food is provided to certain people or organization.
+
+##Problem 2 What's the relationship between food provide and diapers?
+###Next, we are interested in whether they have certain relationship between food pounds and diapers providings? Is there a hidden pattern between these two? 
+For data preparation, we find out that there exist some inconsistency in diapers record, so we need to remove the outliers with value larger than thousand. Also, we are not addressing this problem at individual level instead of date level. So we sum up the diapers count and food pounds based on client file ID.
+```{r}
+datarela <- data[c("Client.File.Number","Food.Pounds","Diapers")] %>% na.omit() %>% filter(Diapers<1000) %>% group_by(Client.File.Number) %>% summarise (Food.Pounds=sum(Food.Pounds),Diapers=sum(Diapers))
+```
+
+To find out the potential relationship between these two variables, we did a correlation test in Pearson method to identify the result statistically. It turned out that they have a positive relationships(0.58) between food and diaper providing. The p-value is far less than 0.05 so this relationship is significant. 
+```{r}
+cor.test(datarela$Food.Pounds,datarela$Diapers,method="pearson")
+ggplot(datarela, aes(x=Food.Pounds,y=Diapers)) + geom_point()+geom_smooth(method=lm)
+```
+
+#####Conclusion
+Plotting the data points in scatter graph, we could see the result visually. It indicates that the relationship between diapers and food pounds are solid. People who ask for more food can have the potential to require more diapers. We may conclude that there is a sign of pregnancy. 
