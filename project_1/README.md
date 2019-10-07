@@ -22,3 +22,5 @@ I will work on the variables of family identifier, food provided ratio/person, a
 ggplot2, tidyverse will be used to visualize the dataset and preview the relationship between variables in dataset.
 For data preparation, food.per.capita needed to be calculated based on headcounts food provided for and its amount. 
 Outliers, missing data, ineffective data will be removed. 
+
+https://docs.google.com/presentation/d/1d_vh_0s3Fw0LQIW8PVTykezbwoBuUQDaDkTHS2pysME/edit?usp=sharing
