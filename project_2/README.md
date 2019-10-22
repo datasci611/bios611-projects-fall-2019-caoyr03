@@ -1,3 +1,6 @@
+Project URL:
+https://caoyr03.shinyapps.io/umddata/
+
 ## Dataset
 
 The dataset was provided by UMD services which assist 6,000 homeless people each year with food, shelter, clothing and/or supportive services. Basic features included in the dataset are: family identifier(single or family), bus tickets, food provided for(# of people), food pound, clothing, diapers, school kits, hygiene kits, and financial support. The year ranges from 1931~2022 from which we only take 2008 ~ 2019 as effective data for analysis.
