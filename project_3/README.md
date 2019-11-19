@@ -26,3 +26,5 @@ The dataset was provided by UMD services databases which were extracted in Novem
 ## Research Variable
 
 Service Unique ID, Client Unique ID,Client Primary Race, Client ethnicity, Client Veteran Status, Prior Living Situation, Housing Status, Disability condition, Health Insurance condition, Domestic violance victim, Date of Birth, Destination, Reason for Leaving
+
+(not finished yet)
