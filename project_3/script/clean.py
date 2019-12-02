@@ -23,4 +23,4 @@ combined['Domestic violence victim/survivor(341)'] = combined['Domestic violence
 combined['Housing Status(2703)'] = combined['Housing Status(2703)'].str.slice(0,-5)
 combined.head()
 combined.columns = ['EEUID','Age_entry','Age_exit','Gender','Race','Ethnicity','Veteran','LivingSituation','LengthStayPrevious','TimesHomeless','LengthHomeless','HousingStatus','Disability','HealthInsurance','ViolanceVictim','DOB','ClientID','Entrydate','Exitdate','Destination','Reason']
-combined.to_csv('../data/wrangle_data.csv')
+combined.to_csv('data/wrangle_data.csv')
