@@ -14,7 +14,7 @@ For this project, target audience are the potential sponsors for UMD and the man
 
 ## Method
 
-Python, R, Make will be implemented. 
+Python, R, are be implemented. The project is organized modularly, with Make as the workflow manager. Docker is used to define execution environments appropriately.
 
 ## Dataset
 
@@ -26,4 +26,9 @@ The dataset was provided by UMD services databases which were extracted in Novem
 ## Research Variable
 
 Service Unique ID, Client Unique ID,Client Primary Race, Client ethnicity, Client Veteran Status, Prior Living Situation, Housing Status, Disability condition, Health Insurance condition, Domestic violance victim, Date of Birth, Destination, Reason for Leaving
+
+## To run the project
+1. Git clone https://github.com/datasci611/bios611-projects-fall-2019-caoyr03.git
+2. Navigate to bios611-projects-fall-2019-caoyr03/project_3
+3. Run 'Make' command
 
