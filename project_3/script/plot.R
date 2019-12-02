@@ -44,17 +44,21 @@ ggplot(ethnicity, aes(x = Duration, fill = Ethnicity)) +
   geom_bar(position = "fill")
 ggsave('../results/ethnicity_duration.png')
 
+# Converting the datetime variable
 exit <- data %>%
   select(Exitdate, ClientID, Reason)
 exit$Exitdate <- as.Date(exit$Exitdate,format="%m/%d/%Y")
+# Picking 10 days as break points
 ggplot(exit, aes(x=Exitdate, fill = Reason)) + 
   geom_histogram(binwidth=10)
 ggsave('../results/reason_hist.png')
 
+# Create a table by counts of these three variables
 count <- data[c('Disability','HealthInsurance','ViolanceVictim')] %>% 
   gather(Category, Count) %>%
   table()
 count
+# Converting categorical data into numerical variable to do correlation matrix
 data_new = drop_na(data)
 data_new$HealthInsurance[data_new$HealthInsurance == 'Yes'] <- 1
 data_new$HealthInsurance[data_new$HealthInsurance == 'No'] <- 0
@@ -68,6 +72,7 @@ data_new$ViolanceVictim = as.numeric(data_new$ViolanceVictim)
 
 cor(na.omit(data_new[c('Disability','HealthInsurance','ViolanceVictim')]))
 
+# Draw a histogram between living condition and destination
 ggplot(data, aes(x=LivingSituation, fill = Destination)) + 
   geom_histogram(stat='count') + 
   theme(axis.text.x=element_text(angle=90, hjust=1, vjust=0.5),
