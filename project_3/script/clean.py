@@ -1,6 +1,5 @@
 import pandas as pd
 # Read in the dataset
-print(pwd)
 client = pd.read_csv('data/CLIENT_191102.tsv',sep = '\t')
 condition = pd.read_csv('data/EE_UDES_191102.tsv',sep = '\t')
 exit = pd.read_csv('data/ENTRY_EXIT_191102.tsv',sep = '\t')
