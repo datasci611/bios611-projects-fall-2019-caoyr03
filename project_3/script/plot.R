@@ -26,7 +26,7 @@ race <- client[c('Duration','Race')] %>%
 # plot
 ggplot(race, aes(x = Duration, fill=Race))+
   geom_bar(position = "fill")
-ggsave('../results/race_duration.png')
+ggsave('results/race_duration.png')
 # 3. gender distribution with duration
 gender <- client[c('Duration','Gender')] %>%
   group_by(Duration,Gender) %>%
@@ -34,7 +34,7 @@ gender <- client[c('Duration','Gender')] %>%
 # plot
 ggplot(gender, aes(x = Duration, fill = Gender)) +
   geom_bar(position = "fill")
-ggsave('../results/gender_duration.png')
+ggsave('results/gender_duration.png')
 # 4. ethnicity distribution with duration
 ethnicity <- client[c('Duration','Ethnicity')] %>%
   group_by(Duration, Ethnicity) %>%
@@ -42,7 +42,7 @@ ethnicity <- client[c('Duration','Ethnicity')] %>%
 # plot
 ggplot(ethnicity, aes(x = Duration, fill = Ethnicity)) + 
   geom_bar(position = "fill")
-ggsave('../results/ethnicity_duration.png')
+ggsave('results/ethnicity_duration.png')
 
 # Converting the datetime variable
 exit <- data %>%
@@ -51,7 +51,7 @@ exit$Exitdate <- as.Date(exit$Exitdate,format="%m/%d/%Y")
 # Picking 10 days as break points
 ggplot(exit, aes(x=Exitdate, fill = Reason)) + 
   geom_histogram(binwidth=10)
-ggsave('../results/reason_hist.png')
+ggsave('results/reason_hist.png')
 
 # Create a table by counts of these three variables
 count <- data[c('Disability','HealthInsurance','ViolanceVictim')] %>% 
@@ -78,4 +78,4 @@ ggplot(data, aes(x=LivingSituation, fill = Destination)) +
   theme(axis.text.x=element_text(angle=90, hjust=1, vjust=0.5),
         text=element_text(size=5),
         legend.position="bottom")
-ggsave('../results/living_destination.png',width = 20, height = 20)
+ggsave('results/living_destination.png',width = 20, height = 20)
