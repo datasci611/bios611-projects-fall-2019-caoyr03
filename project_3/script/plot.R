@@ -1,7 +1,7 @@
 library(ggplot2)
 library(tidyverse)
 library(dplyr)
-data <- read_csv('/Users/caoyuru/Desktop/BIOS 611/project/bios611-projects-fall-2019-caoyr03/project_3/data/wrangle_data.csv') %>%
+data <- read_csv('data/wrangle_data.csv') %>%
   select(-1)
 
 # Wrangle the dataset group by Client while keeping other columns
