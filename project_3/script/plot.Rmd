@@ -9,7 +9,7 @@ First, we read in the dataset from wrangled by Python, so it would be read into 
 library(ggplot2)
 library(tidyverse)
 library(dplyr)
-data <- read_csv('data/wrangle_data.csv') %>%
+data <- read_csv('../data/wrangle_data.csv') %>%
   select(-1)
 ```
 <br/>
