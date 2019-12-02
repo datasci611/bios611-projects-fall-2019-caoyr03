@@ -18,7 +18,7 @@ age <- client[c('Duration','Age_entry','ClientID')] %>%
 # plot
 ggplot(age, aes(x=Duration,y=age)) +
   geom_point()
-ggsave('../results/age_duration.png')
+ggsave('results/age_duration.png')
 # 2.race distribution with duration
 race <- client[c('Duration','Race')] %>%
   group_by(Duration,Race) %>%
