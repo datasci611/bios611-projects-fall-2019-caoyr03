@@ -5,7 +5,7 @@ condition = pd.read_csv('data/EE_UDES_191102.tsv',sep = '\t')
 exit = pd.read_csv('data/ENTRY_EXIT_191102.tsv',sep = '\t')
 # Clean the dataset
 client = client.drop(['EE Provider ID','Client ID'], axis = 1)
-condition = condition.drop(['EE Provider ID','Entry Exit Provider Program Type Code','Client ID','Client Location(4378)','Zip Code (of Last Permanent Address, if known)(1932)','Relationship to Head of Household(4374)','Did you stay less than 7 nights?(5164)','Did you stay less than 90 days?(5163)','On the night before did you stay on the streets, ES or SH?(5165)','If yes for Domestic violence victim/survivor, when experience occurred(1917)'] axis = 1)
+condition = condition.drop(['EE Provider ID','Entry Exit Provider Program Type Code','Client ID','Client Location(4378)','Zip Code (of Last Permanent Address, if known)(1932)','Relationship to Head of Household(4374)','Did you stay less than 7 nights?(5164)','Did you stay less than 90 days?(5163)','On the night before did you stay on the streets, ES or SH?(5165)','If yes for Domestic violence victim/survivor, when experience occurred(1917)'], axis = 1)
 exit = exit.drop(['EE Provider ID','Client ID','Entry Exit Group Id','Entry Exit Household Id','Housing Move-in Date(5584)','Entry Exit Date Added','Entry Exit Date Updated','Entry Exit Type'],axis=1)
 exit.drop(exit.columns[2], axis=1, inplace=True)
 # Combine the dataset
