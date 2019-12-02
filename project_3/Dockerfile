@@ -4,4 +4,5 @@ RUN Rscript -e "install.packages('dplyr')"
 
 FROM continuumio/anaconda3
 RUN pip install pandas
+RUN pip install --upgrade pandas
 
