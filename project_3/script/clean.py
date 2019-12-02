@@ -10,7 +10,7 @@ exit.drop(['EE Provider ID','Client ID','Entry Exit Group Id','Entry Exit Househ
 exit.drop(exit.columns[2], axis=1, inplace=True)
 # Combine the dataset
 combined = pd.merge(client, condition, on = ['EE UID'])
-combined = pd.merge(combined, exit, on =['EE UID']).drop(columns=['Client Unique ID_x','Client Unique ID_y'])
+combined = pd.merge(combined, exit, on =['EE UID']).drop(['Client Unique ID_x','Client Unique ID_y'],axis=1)
 combined.columns
 # Wrangle the data: Remove the (HUD) from records tails
 combined['Client Primary Race'] = combined['Client Primary Race'].str.slice(0,-5)
