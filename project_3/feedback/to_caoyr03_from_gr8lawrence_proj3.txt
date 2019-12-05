@@ -1,0 +1,6 @@
+score: 15/15
+
+I truly appreciate your feedback! I took the easy way in data wrangling by simply
+removing the missing data. I was not not sure dates are relevant to my other research
+questions so I did not them (and time constraints also limited the extensiveness of my analysis).
+But this could be something to explore in future analysis.  
