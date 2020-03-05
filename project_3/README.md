@@ -14,7 +14,7 @@ For this project, target audience are the potential sponsors for UMD and the man
 
 ## Method
 
-Python, R, are be implemented. The project is organized modularly, with Make as the workflow manager. Docker is used to define execution environments appropriately.
+This analysis will rely on Python to clean and wrangle data, R to visualize data, Docker to contain requisite dependencies, and Make for reproducitility.
 
 ## Dataset
 
